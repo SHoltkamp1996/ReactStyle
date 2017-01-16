@@ -5,20 +5,20 @@ There are some basic rules you have to consider
 * Use JSX syntax when writing React component 
 
 # Content
-1. [Project structure](#Project-structure)
-2. [Naming](#Naming )
-3. [PropType](#PropTypes)
-4. [Component](#Component )
-5. [Properties](#Properties)
-6. [Methods](#Methods)
-7. [Spacing](#Spacing)
-8. [Alignment](#Alignment )
-9. [Quotes] (#Quotes)
-10. [Parentheses] (#Parentheses)
-11. [Tag](#Tags)
-12. [Refs](#Refs)
-13. [Chayns](#Chayns-with-React)
-14. [Source](#Source)
+1. [Project structure](#project-structure)
+2. [Naming](#naming )
+3. [PropType](#propTypes)
+4. [Component](#component )
+5. [Properties](#properties)
+6. [Methods](#methods)
+7. [Spacing](#spacing)
+8. [Alignment](#alignment )
+9. [Quotes] (#quotes)
+10. [Parentheses] (#parentheses)
+11. [Tag](#tags)
+12. [Refs](#refs)
+13. [Chayns](#chayns-with-React)
+14. [Source](#source)
 
 ## Project structure
 * This is a possible structure for an Project with `React` als `alt.js`.
