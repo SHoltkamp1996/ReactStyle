@@ -133,7 +133,7 @@ export default  User
 />
 ```
 ```jsx
-//only on Property
+//only one Property
 <Order id="1234567891011" />
 ```
 ```jsx
