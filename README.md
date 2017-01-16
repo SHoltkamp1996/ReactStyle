@@ -1,4 +1,4 @@
-# React-Style-Guid
+# Tobit React/JSX Style Guid
 There are some basic rules you have to consider
 * Only one React componentper per file.
     * But multiple Stateless or Pure components are allowed in one file.
@@ -72,7 +72,7 @@ import SchoolClass from './SchoolClass';
 ```
 
 ## PropTypes
-* PropTypes will help you to ceep your code clean and structured
+* PropTypes will help you to ceep your code clean and structured.
 * Always define defaultProps for all non-required props.
 
 ```jsx
