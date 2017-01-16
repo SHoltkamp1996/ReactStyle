@@ -11,5 +11,5 @@ We think this are some very usefull and handsome information for chayns.
 
 1. [Tobit React/JSX Style Guide]()
 
-## Templets 
+## Templats 
 1. [es6]()
