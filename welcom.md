@@ -1,6 +1,6 @@
 # chayns-styleguides
 
-Here you can find style guides and templets for different languages.
+You will find style guides and templets for different languages. 
 
 ## Language Style Guides
 
