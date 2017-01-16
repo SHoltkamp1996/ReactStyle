@@ -4,6 +4,22 @@ There are some basic rules you have to consider
     * But multiple Stateless or Pure components are allowed in one file.
 * Use JSX syntax when writing React component 
 
+# Content
+1. [Project structure](## Project structure)
+2. [Naming](## Naming )
+3. [PropType](## PropTypes)
+4. [Component](## Component )
+5. [Properties](## Properties)
+6. [Methods](## Methods)
+7. [Spacing](## Spacing)
+8. [Alignment](## Alignment )
+9. [Quotes] (## Quotes)
+10. [Parentheses] (## Parentheses)
+11. [Tag](## Tags)
+12. [Refs](## Refs)
+13. [Chayns](## Chayns with React)
+14. [Source](### Source)
+
 ## Project structure
 * This is a possible structure for an Project with `React` als `alt.js`.
 
@@ -55,6 +71,67 @@ import SchoolClass from './SchoolClass';
 <SchoolClass schoolClassName ="Science-Laboratory" />
 ```
 
+## PropTypes
+* PropTypes will help you to ceep your code clean and structured
+* Always define defaultProps for all non-required props.
+
+```jsx
+import React, { PropTypes } from 'react'
+
+const propTypes ={
+    userId: PropTypes.number.isRequired,
+    firstName: PropTypes.string.isRequired,
+    nameAffix: PropTypes.string
+};
+
+const defaultProps= {
+    nameAffix: 'Hello'
+};
+
+class User extends React.Component{
+
+    render(){
+        return(
+            <div id={this.props.userId}>
+                {this.props.nameAffix + this.props.firstName}
+            </div>
+        )
+    }
+}
+
+User.propTypes = propTypes;
+User.defaultProps = defaultProps;
+
+export default  User
+```
+* This can be used with the plugin `transform-class-properties`
+
+```jsx
+import React, { PropTypes } from 'react'
+
+export default class User extends React.Component{
+
+static propTypes ={
+    userId: PropTypes.number.isRequired,
+    firstName: PropTypes.string.isRequired,
+    greeting: PropTypes.string,
+    onChange: PropTypes.func.isRequired
+};
+
+static defaultProps= {
+    greeting: 'Hello, '
+};
+
+    render(){
+        return(
+            <div id={this.props.userId}>
+                {this.props.nameAffix + this.props.firstName}
+            </div>
+        )
+    }
+}
+```
+ 
 ## Component 
 * Declar your React component with `extends React.Component`.
 * Keep your render function short and clean.
@@ -116,66 +193,62 @@ export default class Tapp extends React.Component {
  19. getter for render like `getUACGroup()`
  20. render
 
-## propTypes
-* PropTypes will help you to ceep your code clean and structured
-* Always define defaultProps for all non-required props.
+## Properties
+* Always use camelCase for your prop names.
 
 ```jsx
-import React, { PropTypes } from 'react'
-
-const propTypes ={
-    userId: PropTypes.number.isRequired,
-    firstName: PropTypes.string.isRequired,
-    nameAffix: PropTypes.string
-};
-
-const defaultProps= {
-    nameAffix: 'Hello'
-};
-
-class User extends React.Component{
-
-    render(){
-        return(
-            <div id={this.props.userId}>
-                {this.props.nameAffix + this.props.firstName}
-            </div>
-        )
-    }
-}
-
-User.propTypes = propTypes;
-User.defaultProps = defaultProps;
-
-export default  User
+<User
+    userName = "Max Mustermann"
+    userId={123456789}
+/>
 ```
-* This can be used with es7
+* Leave out the values when the prop is expelicity `true`.
 
 ```jsx
-import React, { PropTypes } from 'react'
+<User hidden />
+```
 
-export default class User extends React.Component{
+* Always include an alt prop on `<img>` tags. 
+* Don't use words like "image", "photo" or "picture" in `<img>` alt props.
+* Don't use `accessKey`.
+* Use unique IDs as `key`.
 
-static propTypes ={
-    userId: PropTypes.number.isRequired,
-    firstName: PropTypes.string.isRequired,
-    greeting: PropTypes.string,
-    onChange: PropTypes.func.isRequired
-};
+## Methods
+* Use arrow functions if possible and useful.
+* Bind event handlers for the render methods in the constructor.
 
-static defaultProps= {
-    greeting: 'Hello, '
-};
+```jsx
+export default class extends React.Component {
+    constructor(props) {
+        super(props);
 
-    render(){
-        return(
-            <div id={this.props.userId}>
-                {this.props.nameAffix + this.props.firstName}
-            </div>
-        )
+        this.onClickStar = this.onClickStar.bind(this);
+    }
+
+    onClickStar() {
+        // do something
+    }
+
+    render() {
+        return (<Star onClick={this.onClickStar} />)
     }
 }
 ```
+* Don't use underscore prefix. JacaScript has no private method, so it makes less sense. 
+
+
+## Spacing
+* Use a single space for self-closing tags.
+ 
+```jsx
+ <Order />
+```
+* Don't use spaces in your curly braces.
+
+```jsx
+<Order element={currentOrder} />
+```
+
 
 ## Alignment 
 * Use this alignmentstyles for your components.
@@ -212,44 +285,6 @@ static defaultProps= {
 />
 ```
 
-## Spacing
-* Use a single space for self-closing tags.
- 
-```jsx
- <Order />
-```
-* Don't use spaces in your curly braces.
-
-```jsx
-<Order element={currentOrder} />
-```
-
-## Properties
-* Always use camelCase for your prop names.
-
-```jsx
-<User
-    userName = "Max Mustermann"
-    userId={123456789}
-/>
-```
-* Leave out the values when the prop is expelicity `true`.
-
-```jsx
-<User hidden />
-```
-
-* Always include an alt prop on `<img>` tags. 
-* Don't use words like "image", "photo" or "picture" in `<img>` alt props.
-* Don't use `accessKey`.
-* Use unique IDs as `key`.
-
-## Refs
-* Use ref callbacks.
-
-```jsx
-<User ref={(ref) => {this.userRef = ref}} />
-```
 
 ## Parentheses
 * Wrap JSX in parentheses when they span more then one line.
@@ -287,28 +322,13 @@ render(){
 />
 ```
 
-## Methods
-* Use arrow functions if possible and useful.
-* Bind event handlers for the render methods in the constructor.
+## Refs
+* Use ref callbacks.
 
 ```jsx
-export default class extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.onClickStar = this.onClickStar.bind(this);
-    }
-
-    onClickStar() {
-        // do something
-    }
-
-    render() {
-        return (<Star onClick={this.onClickStar} />)
-    }
-}
+<User ref={(ref) => {this.userRef = ref}} />
 ```
-* Don't use underscore prefix. JacaScript has no private method, so it makes less sense. 
+
 
 ## Chayns with React
 * By using chayns you have to be sure chayns is ready. Therefor put the `ReactDOM.render` in your `chayns.ready`.
