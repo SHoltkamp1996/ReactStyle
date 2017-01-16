@@ -7,7 +7,7 @@ There are some basic rules you have to consider
 # Content
 1. [Project structure](#project-structure)
 2. [Naming](#naming )
-3. [PropType](#propTypes)
+3. [PropType](#proptypes)
 4. [Component](#component )
 5. [Properties](#properties)
 6. [Methods](#methods)
@@ -17,7 +17,7 @@ There are some basic rules you have to consider
 10. [Parentheses] (#parentheses)
 11. [Tag](#tags)
 12. [Refs](#refs)
-13. [Chayns](#chayns-with-React)
+13. [Chayns](#chayns-with-react)
 14. [Source](#source)
 
 ## Project structure
