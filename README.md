@@ -306,4 +306,4 @@ chayns.ready.then(function resolved() {
 ```
 
 ### Source
-* Our StylGuid beased on [airbnb StyleHuid](https://github.com/airbnb/javascript/tree/master/react)
+* Our StylGuid beased on [airbnb StyleGuid](https://github.com/airbnb/javascript/tree/master/react)
