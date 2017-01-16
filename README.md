@@ -126,19 +126,21 @@ import React, { PropTypes } from 'react'
 const propTypes ={
     userId: PropTypes.number.isRequired,
     firstName: PropTypes.string.isRequired,
-    greeting: PropTypes.string
+    nameAffix: PropTypes.string
 };
 
 const defaultProps= {
-    greeting: 'Hello, '
+    nameAffix: 'Hello'
 };
 
 class User extends React.Component{
 
     render(){
-        <div id={this.props.userId}>
-            {this.props.greeting + this.props.firstName}
-        </div>
+        return(
+            <div id={this.props.userId}>
+                {this.props.nameAffix + this.props.firstName}
+            </div>
+        )
     }
 }
 
@@ -146,6 +148,33 @@ User.propTypes = propTypes;
 User.defaultProps = defaultProps;
 
 export default  User
+```
+* This can be used with es7
+
+```jsx
+import React, { PropTypes } from 'react'
+
+export default class User extends React.Component{
+
+static propTypes ={
+    userId: PropTypes.number.isRequired,
+    firstName: PropTypes.string.isRequired,
+    greeting: PropTypes.string,
+    onChange: PropTypes.func.isRequired
+};
+
+static defaultProps= {
+    greeting: 'Hello, '
+};
+
+    render(){
+        return(
+            <div id={this.props.userId}>
+                {this.props.nameAffix + this.props.firstName}
+            </div>
+        )
+    }
+}
 ```
 
 ## Alignment 
@@ -275,7 +304,7 @@ export default class extends React.Component {
     }
 
     render() {
-        return <Star onClick={this.onClickStar} />
+        return (<Star onClick={this.onClickStar} />)
     }
 }
 ```
