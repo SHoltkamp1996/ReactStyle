@@ -136,7 +136,7 @@ export default  User
 //only on Property
 <Order id="1234567891011" />
 ```
-```
+```jsx
 //children
 <User
     userName = "Max Mustermann"
