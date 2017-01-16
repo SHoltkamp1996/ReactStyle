@@ -1,11 +1,36 @@
 # React-Style-Guid
-Ther are some basic rules you have to consider
-* Only one React componentper file.
+There are some basic rules you have to consider
+* Only one React componentper per file.
     * But multiple Stateless or Pure components are allowed in one file.
-* Use JSX syntax when writing ReactComponent 
+* Use JSX syntax when writing React component 
 
 ## Project structure
+* This is a possible structure for an Project with `React` als `alt.js`.
 
+```
+..
+src
+|-actions
+  |-configAction.js
+|-components
+  |-configs
+    |-admin
+      |-SettingsAccordion.jsx
+    |-user
+      |-FavoriteAccordion.jsx
+|-Intro.jsx
+|-Intro.scss
+|-sources
+  |-UserSource.js
+|-stores
+  |-UserStore.js
+|-utils
+|-alt.js
+|-Index.js
+|-Index.css
+...
+  
+```
 ## Naming 
 * **Filename**: Use PascalCase for filenames  `ChaynsUser.jsx`
 * **ReferenctNaming**: PascalCase for React components, camelCase for their instances.
@@ -27,7 +52,7 @@ import  ChaynsUser from './ChaynsUser';
 ```jsx
 import SchoolClass from './SchoolClass';
 
-<SchoolClass schoolClaaaName ="Science-Laboratory" />
+<SchoolClass schoolClassName ="Science-Laboratory" />
 ```
 
 ## Component 
@@ -92,7 +117,7 @@ export default class Tapp extends React.Component {
  20. render
 
 ## propTypes
-* PropTypes will help you to clean your code and make him more maintainable.
+* PropTypes will help you to ceep your code clean and structured
 * Always define defaultProps for all non-required props.
 
 ```jsx
@@ -101,18 +126,18 @@ import React, { PropTypes } from 'react'
 const propTypes ={
     userId: PropTypes.number.isRequired,
     firstName: PropTypes.string.isRequired,
-    nameAffix: PropTypes.string
+    greeting: PropTypes.string
 };
 
 const defaultProps= {
-    nameAffix: 'Hello'
+    greeting: 'Hello, '
 };
 
 class User extends React.Component{
 
     render(){
         <div id={this.props.userId}>
-            {this.props.nameAffix + this.props.firstName}
+            {this.props.greeting + this.props.firstName}
         </div>
     }
 }
@@ -129,7 +154,7 @@ export default  User
 ```jsx
 <User
     userName = "Max Mustermann"
-    userId="123456789"
+    userId={123456789}
 />
 ```
 ```jsx
@@ -140,7 +165,7 @@ export default  User
 //children
 <User
     userName = "Max Mustermann"
-    userId="123456789"
+    userId={123456789}
 >
     <Orders />
 </User>
@@ -148,12 +173,12 @@ export default  User
 ```
 
 ## Quotes
-* Use single quotes (') for javaScript and double quotes (") for JSX. 
+* Use single quotes (') for JavaScript and double quotes (") for JSX. 
 
 ```jsx
 <User
    userName = "Max Mustermann"
-   userId="123456789"
+   userId={123456789}
    style = {{margin: '10px'}}
 />
 ```
@@ -194,7 +219,7 @@ export default  User
 * Use ref callbacks.
 
 ```jsx
-<User ref={(ref) => {this.userRef = ref;}} />
+<User ref={(ref) => {this.userRef = ref}} />
 ```
 
 ## Parentheses
@@ -215,12 +240,12 @@ render(){
 ```
 ```jsx
 render(){
-    return <Order>{ItemName}</Order>
+    return ( <Order>{ItemName}</Order> )
 }
 ```
 
 ## Tags
-* Use self-close tags that have no children.
+* Use self-close tags when the tag has no child.
 * If the component has multi-line properties, set the closing tag in a new line.
 
 ```jsx
@@ -234,8 +259,8 @@ render(){
 ```
 
 ## Methods
-* Use arrow functions.
-* Bind event handlers for the render method in the constructor.
+* Use arrow functions if possible and useful.
+* Bind event handlers for the render methods in the constructor.
 
 ```jsx
 export default class extends React.Component {
@@ -276,34 +301,7 @@ chayns.ready.then(function resolved() {
     console.log('Will always be executed');
 });
 ```
-* If you want to use chayns utils for e.g. TextStrings you have to use the `ReactDOM.render` in the sucessCallback in `chayns.utils.lang.init` in yor `chayns.ready`
 
-```jsx
-chayns.ready.then(function resolved() {
-
-    chayns.utils.lang.init({
-        libs: [{
-            project: 'Rating', //Project Name
-            middle: 'LangRes', //Mittlerer Teil eurer TextStrings (CampusDays**LangRes**_Ger.json, ChaynsDevelopers**Res**_Ger.json)
-        }],
-        language: (navigator.language || navigator.userLanguage).substring(0,2) || 'de', //Die Sprache die verwendet werden soll
-        preventOverride: false, //Verhindert das Texte durch chayns.utils.lang.renderTextStrings() überschrieben werden
-        successCallback: ()=>{ ReactDOM.render(
-            <div className='tapp'>
-                <Intro />
-                <FeedbackAccordion />
-            </div>,
-            document.querySelector('#app')
-        );
-        }, 
-        errorCallback: ()=>{ console.log("fail to load textStrings")} //Wird bei Fehlern aufgerufen. Gibt eine Server-Fehlermeldung und die dazugehörige Lib zurück.
-    });
-
-    console.log('chayns is ready, environment is loaded', chayns.env);
-}).then(function always() {
-    console.log('Will always be executed');
-});
-```
 
 ### Source
-* Our StylGuid beased on [airbnb StyleGuid](https://github.com/airbnb/javascript/tree/master/react)
+* Our StyleGuid based on [Airbnb React-StyleGuid](https://github.com/airbnb/javascript/tree/master/react)
